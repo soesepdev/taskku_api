@@ -1,8 +1,8 @@
 {
   "name": "taskku-api",
   "version": "1.0.0",
-  "description": "<p align=\"center\">\r   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"120\" alt=\"Nest Logo\" /></a>\r </p>",
-  "main": "index.js",
+  "description": "taskku-api",
+  "main": "src/app.js",
   "scripts": {
     "dev": "nodemon src/app.js",
     "start": "node src/app.js",

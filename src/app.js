@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const modulesPath = path.join(__dirname, 'modules');
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Hello World' });
+  res.json({ message: 'Hello World!' });
 });
 
 fs.readdirSync(modulesPath).forEach((moduleName) => {
