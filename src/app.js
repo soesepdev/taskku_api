@@ -19,7 +19,7 @@ fs.readdirSync(modulesPath).forEach((moduleName) => {
       if (!file.endsWith('.js')) return;
       const fullPath = path.join(controllerPath, file);
       const controller = require(fullPath);
-      const baseRoute = `/api/${moduleName}`;
+      const baseRoute = `/${moduleName}`;
       app.use(baseRoute, controller);
     });
   }
