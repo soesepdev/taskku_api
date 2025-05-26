@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const model  = require('../models/label.model');
+const model  = require('../models/status.model');
 
 router.get('/', async (req, res) => {
-    let result = await model.getLabels();
+    let result = await model.getStatus();
     res.send(result);
 });
 

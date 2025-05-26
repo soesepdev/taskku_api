@@ -1,10 +1,10 @@
-const getLabels = async () => {
+const getStatus = async () => {
     try {
         let result = {
             id: 1,
             user_id: 1,
-            task_id: 1,
-            name: 'Label Test',
+            name: 'Status Name Test',
+            icon_id: 1,
         };
         return result;
     } catch (err) {
@@ -14,5 +14,5 @@ const getLabels = async () => {
 }
 
 module.exports = {
-    getLabels
+    getStatus
 };
