@@ -10,6 +10,11 @@ router.post('/register', async (req, res) => {
     const { full_name, email, password } = req.body;
     const hashed = await bcrypt.hash(password, 10);
 
+    const existing = await model.checkEmail(email);
+    if (existing) {
+        return res.status(404).json({ message: 'User registered' });
+    }
+
     const user = await model.register({
         full_name,
         email,
