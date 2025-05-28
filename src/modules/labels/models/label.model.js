@@ -1,12 +1,8 @@
+const db = require('../../../config/db');
+
 const getLabels = async () => {
     try {
-        let result = {
-            id: 1,
-            user_id: 1,
-            task_id: 1,
-            name: 'Label Test',
-        };
-        return result;
+       return await db.any('SELECT * FROM labels');
     } catch (err) {
         console.log(err);
         return false;

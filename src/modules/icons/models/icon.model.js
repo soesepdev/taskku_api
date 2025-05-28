@@ -1,11 +1,8 @@
+const db = require('../../../config/db');
+
 const getIcons = async () => {
     try {
-        let result = {
-            id: 1,
-            name: 'Name Test',
-            icon: 'Icon Test',
-        };
-        return result;
+        return await db.any('SELECT * FROM icons');
     } catch (err) {
         console.log(err);
         return false;

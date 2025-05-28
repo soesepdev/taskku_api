@@ -1,8 +1,8 @@
 const db = require('../../../config/db');
-        
-const getStatus = async () => {
+
+const getTasks = async (id = '') => {
     try {
-        return await db.any('SELECT * FROM status');
+        return await db.any('SELECT * FROM tasks');
     } catch (err) {
         console.log(err);
         return false;
@@ -10,5 +10,5 @@ const getStatus = async () => {
 }
 
 module.exports = {
-    getStatus
+    getTasks
 };

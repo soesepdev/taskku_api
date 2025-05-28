@@ -4,7 +4,10 @@ const model  = require('../models/project.model');
 
 router.get('/', async (req, res) => {
     let result = await model.getProjects();
-    res.send(result);
+    if (result.length == 0) {
+      return res.json({ message: 'Data not found!' });
+    }
+    res.json(result);
 });
 
 module.exports = router;

@@ -4,6 +4,9 @@ const model  = require('../models/icon.model');
 
 router.get('/', async (req, res) => {
     let result = await model.getIcons();
+    if (result.length == 0) {
+      return res.json({ message: 'Data not found!' });
+    }
     res.send(result);
 });
 

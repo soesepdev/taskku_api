@@ -1,11 +1,8 @@
+const db = require('../../../config/db');
+
 const getUsers = async () => {
     try {
-        let result = {
-            id: 1,
-            fullname: 'Fullname Test',
-            email: 'Email Test',
-        };
-        return result;
+        return await db.any('SELECT * FROM users');
     } catch (err) {
         console.log(err);
         return false;
