@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   if (result.length == 0) {
     return res.json({ message: 'Data not found!' });
   }
-  res.json(users);
+  res.json(result);
 });
 
 module.exports = router;
