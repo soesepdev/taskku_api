@@ -2,7 +2,7 @@ const db = require('../../../config/db');
 
 const getProjects = async () => {
     try {
-        return await db.any('SELECT * FROM projects');
+        return await db.any('SELECT a.project_name, a.is_active, a.is_deleted FROM projects a');
     } catch (err) {
         console.log(err);
         return false;
