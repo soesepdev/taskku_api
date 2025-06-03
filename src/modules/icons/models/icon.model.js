@@ -2,7 +2,7 @@ const db = require('../../../config/db');
 
 const getIcons = async () => {
   try {
-    return await db.any('SELECT icon_name, icon, is_active, is_deleted FROM icons ORDER BY icon_name ASC');
+    return await db.any('SELECT id, icon_name, icon, is_active, is_deleted FROM icons ORDER BY icon_name ASC');
   } catch (err) {
     console.log(err);
     return false;
@@ -11,7 +11,7 @@ const getIcons = async () => {
 
 const getIconById = async (id) => {
   try {
-    return await db.oneOrNone('SELECT icon_name, icon FROM icons WHERE id = $1', [id]);
+    return await db.oneOrNone('SELECT id, icon_name, icon FROM icons WHERE id = $1', [id]);
   } catch (err) {
     console.log(err);
     return false;

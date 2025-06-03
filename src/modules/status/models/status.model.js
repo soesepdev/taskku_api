@@ -2,7 +2,7 @@ const db = require('../../../config/db');
         
 const getStatus = async () => {
     try {
-        return await db.any('SELECT a.status_name, b.icon, a.is_active, a.is_deleted FROM status a LEFT JOIN icons b ON a.icon_id=b.id');
+        return await db.any('SELECT s.id, s.status_name, i.icon, s.is_active, s.is_deleted FROM status s LEFT JOIN icons i ON s.icon_id=i.id');
     } catch (err) {
         console.log(err);
         return false;
