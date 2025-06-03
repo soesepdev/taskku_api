@@ -2,7 +2,7 @@ const db = require('../../../config/db');
 
 const getIcons = async () => {
   try {
-    return await db.any('SELECT name, icon FROM icons ORDER BY name ASC');
+    return await db.any('SELECT icon_name, icon, is_active, is_deleted FROM icons ORDER BY icon_name ASC');
   } catch (err) {
     console.log(err);
     return false;
@@ -11,7 +11,7 @@ const getIcons = async () => {
 
 const getIconById = async (id) => {
   try {
-    return await db.oneOrNone('SELECT * FROM icons WHERE id = $1', [id]);
+    return await db.oneOrNone('SELECT icon_name, icon FROM icons WHERE id = $1', [id]);
   } catch (err) {
     console.log(err);
     return false;
@@ -20,10 +20,10 @@ const getIconById = async (id) => {
 
 const createIcon = async (data) => {
   try {
-    const { name, icon } = data;
+    const { icon_name, icon } = data;
     return await db.one(
-        'INSERT INTO icons(name, icon) VALUES ($1, $2) RETURNING *',
-        [name, icon]
+        'INSERT INTO icons(icon_name, icon) VALUES ($1, $2) RETURNING *',
+        [icon_name, icon]
     );
   } catch (err) {
     console.log(err);
@@ -33,10 +33,10 @@ const createIcon = async (data) => {
 
 const updateIcon = async (id, data) => {
   try {
-    const { name, icon } = data;
+    const { icon_name, icon } = data;
     return await db.oneOrNone(
-      'UPDATE icons SET name = $1, icon = $2 WHERE id = $3 RETURNING *',
-      [name, icon, id]
+      'UPDATE icons SET icon_name = $1, icon = $2 WHERE id = $3 RETURNING *',
+      [icon_name, icon, id]
     );
   } catch (err) {
     console.log(err);
