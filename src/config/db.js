@@ -1,5 +1,8 @@
 require('dotenv').config();
 const pgp = require('pg-promise')();
+const pg = require('pg');
+
+pg.types.setTypeParser(20, val => parseInt(val, 10));
 
 const db = pgp({
   host: process.env.DB_HOST,
